@@ -35,7 +35,8 @@ public class CheckOutConfirmationTest extends BaseClass {
         shoppingCartPage=productLandingPage.setQuantityAndAddToCart("1");
         checkOutConfirmationPage=shoppingCartPage.checkOutTheCart();
 
-        String result = checkOutConfirmationPage.getShipmentUserDetails();
+        String result = checkOutConfirmationPage.getShipmentUserDetails().trim().replaceAll("\\s+", "");;
+        System.out.println(result+"result");
         boolean containsAlphanumeric = result != null && result.matches(".*[a-zA-Z0-9].*");
         Assertions.assertTrue(containsAlphanumeric);
 
@@ -51,8 +52,9 @@ public class CheckOutConfirmationTest extends BaseClass {
         shoppingCartPage=productLandingPage.setQuantityAndAddToCart("1");
         checkOutConfirmationPage=shoppingCartPage.checkOutTheCart();
 
-        String result = checkOutConfirmationPage.getPaymentUserDetails();
-        boolean containsAlphanumeric = result != null && result.matches(".*[a-zA-Z0-9].*");
+        String result = checkOutConfirmationPage.getPaymentUserDetails().trim().replaceAll("\\s+", "");;
+        System.out.println(result+"result");
+        boolean containsAlphanumeric = ((result != null ) && result.matches(".*[a-zA-Z0-9].*"));
         Assertions.assertTrue(containsAlphanumeric);
 
     }

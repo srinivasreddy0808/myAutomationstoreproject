@@ -59,6 +59,10 @@ public class BaseClass {
             options.addArguments("--disable-notifications");
             options.addArguments("--no-default-browser-check");
             options.addArguments("--disable-popup-blocking");
+            options.addArguments("--disable-gpu");
+            options.addArguments("--no-sandbox");
+            options.addArguments("--disable-extensions");
+            options.addArguments("--disable-dev-shm-usage");
             options.addArguments("--incognito");
             driver = new ChromeDriver(options);
 

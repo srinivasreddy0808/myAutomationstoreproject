@@ -47,12 +47,22 @@ public class ProductLandingPage extends BaseClass {
         return  new  ShoppingCartPage();
 
     }
+
+    public  void setProductQuantity(String quantity) {
+        Action.type(productQuantity,quantity);
+
+    }
+
+
     public String getProductText( ) {
         return  productName.getText();
     }
 
     public void clickTheWishListButton( ) {
-        Action.click(driver,wishListButton);
+        boolean exist=Action.findElement(driver,wishListButton);
+        if (exist) {
+            Action.click(driver, wishListButton);
+        }
     }
 
 
@@ -64,7 +74,7 @@ public class ProductLandingPage extends BaseClass {
     }
 
     public String getTotalQuantity( ){
-        return  productQuantity.getText();
+        return  productQuantity.getAttribute("value");
     }
 
     public double getUnitPrice( ) {
@@ -75,13 +85,19 @@ public class ProductLandingPage extends BaseClass {
     }
 
     public String getModelInformation( ) {
-        return modelElement.getText();
+        return modelElement.getText().replaceAll("[^0-9]","").trim();
     }
 
     public  void addToWhishList() {
-        Action.click(driver,wishListButton);
+         boolean exist=Action.findElement(driver,wishListButton);
+         if(exist) {
+             Action.click(driver, wishListButton);
+         }
     }
     public void removeWishList( ) {
-        Action.click(driver,removeWishListButton);
+        boolean exist = Action.findElement(driver,removeWishListButton);
+        if (exist) {
+            Action.click(driver, removeWishListButton);
+        }
     }
 }

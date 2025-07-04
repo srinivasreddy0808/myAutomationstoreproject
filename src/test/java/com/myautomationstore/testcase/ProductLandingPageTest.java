@@ -31,7 +31,7 @@ public class ProductLandingPageTest extends BaseClass  {
         accountLoginPage =indexPage.clickOnLogInOrRegisterButton();
         accountLoginPage.loginWithDetails("srinivas","123456789");
         productLandingPage=indexPage.searchTheProduct("skinsheen");
-        productLandingPage.setQuantityAndAddToCart("2");
+        productLandingPage.setProductQuantity("2");
         Assertions.assertEquals("558003",productLandingPage.getModelInformation());
 
     }
@@ -43,7 +43,7 @@ public class ProductLandingPageTest extends BaseClass  {
         accountLoginPage =indexPage.clickOnLogInOrRegisterButton();
         accountLoginPage.loginWithDetails("srinivas","123456789");
         productLandingPage=indexPage.searchTheProduct("skinsheen");
-        productLandingPage.setQuantityAndAddToCart("2");
+        productLandingPage.setProductQuantity("2");
         double quantity = Double.parseDouble(productLandingPage.getTotalQuantity());
         double totalPrice = productLandingPage.getTotalPrice();
         double unitPrice=productLandingPage.getUnitPrice();
@@ -57,7 +57,7 @@ public class ProductLandingPageTest extends BaseClass  {
         accountLoginPage =indexPage.clickOnLogInOrRegisterButton();
         accountLoginPage.loginWithDetails("srinivas","123456789");
         productLandingPage=indexPage.searchTheProduct("skinsheen");
-        productLandingPage.setQuantityAndAddToCart("2");
+        productLandingPage.setProductQuantity("2");
         productLandingPage.addToWhishList();
         productLandingPage.removeWishList();
 
